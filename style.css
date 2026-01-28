@@ -1,0 +1,271 @@
+/* MOBILE FIRST - Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1b1b 100%);
+    color: white;
+    min-height: 100vh;
+    padding: 15px;
+}
+
+/* Container fluide mobile */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Header mobile */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.header h1 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+}
+
+/* Sections mobile - SANS backdrop-filter */
+.calc-section, .timer-section, .program-section {
+    background: rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+h2 {
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+}
+
+/* GRID MOBILE UNIQUEMENT */
+.calc-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: stretch;
+    margin-bottom: 1.2rem;
+}
+
+/* Inputs mobile - SANS backdrop-filter */
+input {
+    padding: 1rem 1rem;
+    background: rgba(255,255,255,0.12);
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    border: none;
+    width: 100%;
+    font-weight: 500;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,107,53,0.3);
+    transform: translateY(-1px);
+}
+
+/* Boutons mobile */
+button {
+    padding: 1rem 1.5rem;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255,107,53,0.4);
+}
+
+/* Résultat mobile */
+.result {
+    grid-column: 1;
+    padding: 1.2rem;
+    background: linear-gradient(45deg, rgba(255,107,53,0.2), rgba(247,147,30,0.2));
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Pourcentages mobile */
+.hidden { display: none; }
+
+.percent-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.percent-item {
+    background: rgba(255,255,255,0.1);
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* TIMER */
+.timer-display {
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    font-family: monospace;
+    text-align: center;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.timer-controls input {
+    width: 70px !important;
+    padding: 12px;
+    font-size: 1.2rem;
+}
+
+/* Programmes mobile */
+ul { list-style: none; }
+
+.program-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+}
+
+/* SUPPRESSION flèches */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+
+/* MODALE - AU-DESSUS DE TOUT */
+#timeUpModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 10000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#timeUpModal.active {
+    display: flex !important;
+}
+
+.time-up-modal {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    padding: 2.5rem 2rem;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.9);
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+.time-up-emoji { 
+    font-size: 4rem; 
+    margin-bottom: 1rem; 
+}
+
+.time-up-title { 
+    font-size: clamp(1.8rem, 6vw, 2.5rem); 
+    font-weight: bold; 
+    margin-bottom: 0.8rem; 
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.time-up-text { 
+    font-size: 1.3rem; 
+    margin-bottom: 2rem; 
+}
+
+.modal-btn {
+    padding: 1.2rem 2.5rem;
+    background: rgba(255,255,255,0.95);
+    color: #ff6b35;
+    border: none;
+    border-radius: 16px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+.modal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+    body { padding: 20px; }
+    
+    .calc-grid {
+        grid-template-columns: 1fr 1fr auto;
+        align-items: end;
+    }
+    
+    button {
+        width: auto;
+        padding: 1rem 2rem;
+    }
+    
+    .percent-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+    
+    .container {
+        max-width: 800px;
+    }
+}

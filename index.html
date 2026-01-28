@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff6b35">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Muscle Calc</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🏋️ Muscle Calc</h1>
+            <p>1RM Calculator & Timer</p>
+        </header>
+        
+        <!-- 1RM CALCULATOR -->
+        <section class="calc-section">
+            <h2>1RM Calculator</h2>
+            <div class="calc-grid">
+                <input type="number" id="weight" placeholder="Weight (kg)" min="1" step="0.5">
+                <input type="number" id="reps" placeholder="Reps" min="1" max="20">
+                <button id="calcBtn">Calculate 1RM</button>
+                <div id="result" class="result hidden"></div>
+            </div>
+            
+            <div id="percentages" class="percentages hidden">
+                <h3>Recommended Weights</h3>
+                <div class="percent-grid"></div>
+            </div>
+        </section>
+
+        <!-- TIMER MANUAL 00:00 -->
+        <section class="timer-section">
+            <h2>⏱️ Timer Séries</h2>
+            <div class="timer-display">00:00</div>
+            <div class="timer-controls">
+                <input type="number" id="timerMin" placeholder="min" min="0" max="10" value="0">
+                <input type="number" id="timerSec" placeholder="sec" min="0" max="59" value="0">
+                <button id="startTimer">START</button>
+                <button id="resetTimer">RESET</button>
+            </div>
+            <!-- MODALE TEMPS ÉCOULÉ -->
+<div id="timeUpModal" class="modal-overlay">
+    <div class="time-up-modal">
+        <div class="time-up-emoji">🚨</div>
+        <div class="time-up-title">TEMPS ÉCOULÉ !</div>
+        <div class="time-up-text">Prochaine série 💪</div>
+        <button class="modal-btn" onclick="closeTimeUpModal()">OK</button>
+    </div>
+</div>
+
+        </section>
+
+        <!-- Programs (futur) -->
+        <section class="program-section">
+            <h2>💾 My Programs</h2>
+            <button id="saveProgram">Save Program</button>
+            <ul id="programList"></ul>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
